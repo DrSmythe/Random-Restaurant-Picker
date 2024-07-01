@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Restaurant Picker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Standard favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Additional sizes for different devices -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png">
+    
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Favicon for Android Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    
+    <!-- Manifest for Android Chrome -->
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Random Restaurant Picker</h1>
+        <button id="pickButton">Pick a Restaurant</button>
+        <div id="restaurant" class="hidden">
+            <h2 id="restaurantName"></h2>
+            <p id="restaurantAddress"></p>
+            <p id="restaurantRating"></p>
+            <a id="restaurantLink" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+        </div>
+        <div id="error" class="hidden error"></div>
+    </div>
+    <script>
+        async function initialize() {
+            try {
+                const response = await fetch('get_api_key.php');
+                const data = await response.json();
+                const apiKey = data.apiKey;
+
+                // Load the Google Maps script dynamically
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=places`;
+                document.head.appendChild(script);
+            } catch (error) {
+                console.error('Error fetching the API key:', error);
+            }
+        }
+        initialize();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

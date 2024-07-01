@@ -1,0 +1,63 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6200ea;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+/* Error Message Styles */
+.error {
+    color: #cf6679;
+    margin-top: 10px;
+}
+
+/* Restaurant Info Styles */
+.restaurant-info {
+    margin-top: 20px;
+}
+
+/* Link Styles */
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
